@@ -1,8 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 16;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 0;       /* snap pixel */
+static const unsigned int gappx     = 16;
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -11,11 +12,6 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "inconsolata:size=9" };
 static const char dmenufont[]       = "inconsolata:size=9";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
 static const char nord_0[]          = "#2e3440";
 static const char nord_1[]          = "#3b4252";
 static const char nord_2[]          = "#434c5e";
@@ -34,8 +30,8 @@ static const char nord_14[]         = "#a3be8c";
 static const char nord_15[]         = "#b48ead";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { nord_3, nord_0,  nord_11 },
-	[SchemeSel]  = { nord_4, nord_0,  nord_1 },
+	[SchemeNorm] = { nord_10, nord_0,  nord_2 },
+	[SchemeSel]  = { nord_4, nord_0,  nord_9 },
 };
 
 /* tagging */
@@ -76,7 +72,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", nord_0, "-nf", nord_4, "-sb", nord_2, "-sf", nord_4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 /* Volume ALT + F11 / F12 */
