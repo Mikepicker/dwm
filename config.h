@@ -1,16 +1,16 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
-static const unsigned int snap      = 0;       /* snap pixel */
-static const unsigned int gappx     = 16;
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int snap      = 0;        /* snap pixel */
+static const unsigned int gappx     = 8;
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
+static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Fira Mono Medium:size=9" };
+static const char *fonts[]          = { "Fira Mono Medium:size=9", "Font Awesome 5 Free:size=9" };
 static const char dmenufont[]       = "Fira Mono Medium:size=9";
 static const char nord_0[]          = "#2e3440";
 static const char nord_1[]          = "#3b4252";
@@ -78,7 +78,10 @@ static const char *termcmd[]  = { "st", NULL };
 /* Volume ALT + F11 / F12 */
 static const char *upvol[]   = { "amixer", "-q", "sset", "Master", "3%+",     NULL  };
 static const char *downvol[] = { "amixer", "-q", "sset", "Master", "3%-",     NULL  };
-static const char *mutevol[] = { "amixer", "-q", "sset", "Master", "toggle", NULL  };
+static const char *mutevol[] = { "amixer", "-q", "sset", "Master", "toggle",  NULL  };
+
+/* Slock */
+static const char *slock[] = { "slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -107,7 +110,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
   { MODKEY,                       XK_F12,    spawn,          {.v = upvol   }  },
   { MODKEY,                       XK_F11,    spawn,          {.v = downvol }  },
-  { MODKEY,                       XK_F9,     spawn,          {.v = mutevol }  },
+  { MODKEY,                       XK_F10,    spawn,          {.v = mutevol }  },
+  { MODKEY,                       XK_F1,     spawn,          {.v = slock }  },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
